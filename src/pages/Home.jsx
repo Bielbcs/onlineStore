@@ -1,4 +1,5 @@
 import React from 'react';
+import ShoppingCartButton from '../components/ShoppingCartButton';
 
 class Home extends React.Component {
   state = {
@@ -18,6 +19,9 @@ class Home extends React.Component {
               Digite algum termo de pesquisa ou escolha uma categoria.
             </span>
           )}
+        <div>
+          <ShoppingCartButton />
+        </div>
       </div>
     );
   }
