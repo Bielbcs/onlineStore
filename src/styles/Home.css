@@ -1,0 +1,38 @@
+.container-do-header {
+  align-items: center;
+  background-color: #198754;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+}
+
+.lista-de-categorias {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+  padding: 10px;
+  width: 20%;
+}
+
+.lista-e-resultado {
+  column-gap: 15px;
+  display: flex;
+  padding-top: 50px;
+}
+
+.container-do-resultado {
+  background-color: #d9d9d9;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  justify-content: center;
+  padding: 30px;
+  width: 77%;
+}
+
+.container-do-resultado span {
+  display: block;
+  text-align: center;
+}
