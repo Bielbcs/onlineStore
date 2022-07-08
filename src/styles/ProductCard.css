@@ -1,0 +1,15 @@
+.card-do-produto {
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px gray;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 200px;
+}
+
+.card-do-produto img {
+  height: 100px;
+  width: 100px;
+}
