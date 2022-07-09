@@ -12,10 +12,25 @@ class Home extends React.Component {
     categoriaSelecionada: '',
     jaPesquisou: false,
     valorDoInput: '',
+    carrinhoDeCompras: [],
   }
 
   componentDidMount() {
     this.pegaCategorias();
+  }
+
+  adicionarAoCarrinho = (data) => {
+    if (!localStorage.carrinho) {
+      this.setState({ carrinhoDeCompras: [] });
+    } else {
+      this.setState({ carrinhoDeCompras: JSON.parse(localStorage.carrinho) });
+    }
+    const { carrinhoDeCompras } = this.state;
+    const novoArray = [...carrinhoDeCompras, data];
+    const quantidade = novoArray.filter((item) => item.id === data.id).length;
+    data.quantidade = quantidade;
+    this.setState({ carrinhoDeCompras: novoArray });
+    localStorage.setItem('carrinho', JSON.stringify(novoArray));
   }
 
   pegaCategorias = async () => {
@@ -44,13 +59,16 @@ class Home extends React.Component {
   renderizaProdutos = () => {
     const { produtos } = this.state;
     if (!produtos.length) return <span>Nenhum produto encontrado</span>;
-    return produtos.map((produto) => <ProductCard key={ produto.id } data={ produto } />);
+    return produtos.map((produto) => (<ProductCard
+      key={ produto.id }
+      data={ produto }
+      adicionarAoCarrinho={ this.adicionarAoCarrinho }
+    />));
   }
 
   render() {
     const { produtos, categoriesList, valorDoInput,
-      jaPesquisou, categoriaSelecionada } = this.state;
-    console.log(categoriaSelecionada);
+      jaPesquisou } = this.state;
     return (
       <div>
         <div className="container-do-header">
