@@ -22,6 +22,8 @@ class Home extends React.Component {
     if (localStorage.carrinho) {
       const novoArray = [...JSON.parse(localStorage.carrinho), data];
 
+      localStorage.produto = data;
+
       const quantidade = novoArray.filter((item) => item.id === data.id).length;
 
       localStorage.setItem(data.id, JSON.stringify(quantidade));
