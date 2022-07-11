@@ -10,6 +10,7 @@ export default class AddCartBtn extends Component {
           type="button"
           data-testid="product-add-to-cart"
           onClick={ () => adicionarAoCarrinho(data) }
+          className="btn btn-outline-primary add-btn"
         >
           Adicionar ao Carrinho
         </button>

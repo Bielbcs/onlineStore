@@ -10,7 +10,7 @@ export default class ProductCard extends Component {
     return (
       <div className="card-do-produto" data-testid="product">
         <img src={ thumbnail } alt={ title } />
-        <p>{ title }</p>
+        <p className="nome-do-produto">{ title }</p>
         <span>{`Preço: R$${price}`}</span>
         <AddCartBtn adicionarAoCarrinho={ adicionarAoCarrinho } data={ data } />
       </div>

@@ -3,8 +3,20 @@
   background-color: #198754;
   display: flex;
   justify-content: space-between;
+  padding: 5px 15px;
   position: fixed;
   width: 100%;
+}
+
+.form-container {
+  column-gap: 10px;
+  display: flex;
+}
+
+.search-button, .search-input {
+  align-items: center;
+  display: flex;
+  height: 30px;
 }
 
 .lista-de-categorias {

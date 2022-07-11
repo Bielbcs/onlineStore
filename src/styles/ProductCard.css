@@ -5,8 +5,26 @@
   box-shadow: 2px 2px 2px gray;
   display: flex;
   flex-direction: column;
+  height: 350px;
+  justify-content: space-between;
   padding: 15px;
   width: 200px;
+}
+
+.card-do-produto p {
+  font-size: smaller;
+  height: 200px;
+  text-align: center;
+}
+
+.nome-do-produto {
+  height: 60px;
+  overflow: auto;
+}
+
+.add-btn {
+  font-size: 10pt;
+  height: 50px;
 }
 
 .card-do-produto img {

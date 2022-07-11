@@ -12,7 +12,6 @@ class Home extends React.Component {
     categoriaSelecionada: '',
     jaPesquisou: false,
     valorDoInput: '',
-    carrinhoDeCompras: [],
   }
 
   componentDidMount() {
@@ -20,17 +19,16 @@ class Home extends React.Component {
   }
 
   adicionarAoCarrinho = (data) => {
-    if (!localStorage.carrinho) {
-      this.setState({ carrinhoDeCompras: [] });
+    if (localStorage.carrinho) {
+      const novoArray = [...JSON.parse(localStorage.carrinho), data];
+
+      const quantidade = novoArray.filter((item) => item.id === data.id).length;
+
+      localStorage.setItem(data.id, JSON.stringify(quantidade));
+      localStorage.carrinho = JSON.stringify(novoArray);
     } else {
-      this.setState({ carrinhoDeCompras: JSON.parse(localStorage.carrinho) });
+      localStorage.carrinho = JSON.stringify([data]);
     }
-    const { carrinhoDeCompras } = this.state;
-    const novoArray = [...carrinhoDeCompras, data];
-    const quantidade = novoArray.filter((item) => item.id === data.id).length;
-    data.quantidade = quantidade;
-    this.setState({ carrinhoDeCompras: novoArray });
-    localStorage.setItem('carrinho', JSON.stringify(novoArray));
   }
 
   pegaCategorias = async () => {
@@ -71,8 +69,8 @@ class Home extends React.Component {
       jaPesquisou } = this.state;
     return (
       <div>
-        <div className="container-do-header">
-          <form onSubmit={ (e) => this.buscaProdutos(e) }>
+        <div className="container-do-header mb-3">
+          <form onSubmit={ (e) => this.buscaProdutos(e) } className="form-container">
             <label htmlFor="search">
               <input
                 type="text"
@@ -81,14 +79,16 @@ class Home extends React.Component {
                 onChange={ (currentElement) => {
                   this.setState({ valorDoInput: currentElement.target.value });
                 } }
+                className="form-control search-input"
               />
-              <button
-                type="submit"
-                data-testid="query-button"
-              >
-                Pesquisar
-              </button>
             </label>
+            <button
+              type="submit"
+              data-testid="query-button"
+              className="btn btn-primary search-button"
+            >
+              Pesquisar
+            </button>
           </form>
           <div>
             <ShoppingCartButton />

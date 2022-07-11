@@ -5,7 +5,7 @@ export default class Categories extends Component {
   render() {
     const { nome, id, pegaCategoriaSelecionada } = this.props;
     return (
-      <label data-testid="category" htmlFor={ id }>
+      <label data-testid="category" htmlFor={ id } className="radio">
         <input
           type="radio"
           id={ id }
