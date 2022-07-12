@@ -25,7 +25,7 @@ export default class ProductCard extends Component {
           onClick={ this.setaLocalStorage }
           data-testid="product-detail-link"
         >
-          <button type="button">Mais detalhes</button>
+          <button type="button" className="details-button">Mais detalhes</button>
         </Link>
       </div>
     );

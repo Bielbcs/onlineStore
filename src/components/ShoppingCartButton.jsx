@@ -5,7 +5,7 @@ export default class ShoppingCartButton extends Component {
   render() {
     return (
       <div>
-        <Link to="/cart" data-testid="shopping-cart-button">
+        <Link to="/cart" data-testid="shopping-cart-button" className="carrinho">
           <img
             className="cart-image"
             width="40"

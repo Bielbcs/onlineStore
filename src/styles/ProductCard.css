@@ -5,7 +5,7 @@
   box-shadow: 2px 2px 2px gray;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 400px;
   justify-content: space-between;
   padding: 15px;
   width: 200px;
@@ -15,6 +15,21 @@
   font-size: smaller;
   height: 200px;
   text-align: center;
+}
+
+.details-button {
+  background-color: #0d6efd;
+  border: none;
+  border-radius: 7px;
+  color: white;
+  font-size: 12pt;
+  transition: 0.5s;
+}
+
+.details-button:hover {
+  background-color: white;
+  border: 1px solid #0d6efd;
+  color: #0d6efd;
 }
 
 .nome-do-produto {
