@@ -1,0 +1,23 @@
+.checkout-container {
+  align-items: center;
+  background-color: #198754c5;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.checkout-form-container {
+  align-items: center;
+  background-color: aliceblue;
+  border: 1px solid black;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  justify-content: center;
+  overflow: auto;
+  row-gap: 15px;
+  width: 40%;
+}

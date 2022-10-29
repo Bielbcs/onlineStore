@@ -51,7 +51,14 @@ export default class ShoppingCart extends Component {
           </div>
         )}
         <Link to="/checkout">
-          <button type="button" data-testid="checkout-products">Finalizar compra</button>
+          <button
+            type="button"
+            className="btn btn-primary"
+            data-testid="checkout-products"
+          >
+            Finalizar compra
+
+          </button>
         </Link>
       </div>
     );
