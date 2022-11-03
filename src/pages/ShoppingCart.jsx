@@ -30,6 +30,15 @@ export default class ShoppingCart extends Component {
     }
   }
 
+  del = (data) => {
+    const { produtos } = this.state;
+    const filteredProducts = produtos.filter(({ id }) => id !== data.id);
+
+    this.setState({ produtos: filteredProducts }, () => {
+      localStorage.carrinho = JSON.stringify(filteredProducts);
+    });
+  }
+
   render() {
     const { produtos } = this.state;
     return (
@@ -47,19 +56,19 @@ export default class ShoppingCart extends Component {
             { produtos.map((produto, index) => (<ShoppingProducts
               key={ index }
               data={ produto }
+              del={ this.del }
             />))}
+            <Link to="/checkout">
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-testid="checkout-products"
+              >
+                Finalizar compra
+              </button>
+            </Link>
           </div>
         )}
-        <Link to="/checkout">
-          <button
-            type="button"
-            className="btn btn-primary"
-            data-testid="checkout-products"
-          >
-            Finalizar compra
-
-          </button>
-        </Link>
       </div>
     );
   }

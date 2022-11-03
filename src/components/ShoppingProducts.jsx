@@ -27,17 +27,23 @@ export default class ShoppingProducts extends Component {
   }
 
   diminuiQuantidade = () => {
-    const { data } = this.props;
+    const { data, del } = this.props;
     const { quantidade } = this.state;
     if (quantidade > 1) {
       this.setState({ quantidade: quantidade - 1 });
-      localStorage.setItem(data.id, quantidade - 1);
+      return localStorage.setItem(data.id, quantidade - 1);
     }
+    return del(data);
   }
 
   render() {
     const { data: { title, price, thumbnail } } = this.props;
     const { quantidade } = this.state;
+
+    const test = price * quantidade;
+
+    const fixedTest = test.toFixed(2);
+
     return (
       <div className="produto-do-carrinho">
         <img src={ thumbnail } alt="title" />
@@ -68,11 +74,12 @@ export default class ShoppingProducts extends Component {
             +
           </button>
         </div>
-        <p className="preco">{`Preço total: R$${price * quantidade}`}</p>
+        <p className="preco">{`Preço total: R$${fixedTest}`}</p>
       </div>
     );
   }
 }
 ShoppingProducts.propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
+  del: PropTypes.func.isRequired,
 };

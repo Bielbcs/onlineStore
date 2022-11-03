@@ -5,7 +5,8 @@
   box-shadow: 2px 2px 2px gray;
   display: flex;
   flex-direction: column;
-  height: 400px;
+  row-gap: 10px;
+  height: 350px;
   justify-content: space-between;
   padding: 15px;
   width: 200px;
